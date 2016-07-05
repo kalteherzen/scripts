@@ -16,6 +16,9 @@ do
 	tar -czf $base.tar.gz "$dir" >> /dev/null
 done
 
+# Script usage
+# backup.sh folderlist.txt
+#
 # usage:
 # rsync -avh --progress --delete /source /destination
 #
