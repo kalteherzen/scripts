@@ -1,6 +1,6 @@
 #!/bin/bash
 
-USER=whoami
+USER=$(whoami)
 
 while IFS='' read -r line || [[ -n "$line" ]]
 do
@@ -9,9 +9,9 @@ do
  
 done < $1
 
-cd ~/test/
+cd $USER/Backup/$USER/
 
-for dir in ~/Backup/$USER/*
+for dir in $USER/Backup/$USER/*
 do
 	base=Backup_$(basename "$dir")_$(date +%Y%m%d)
 	printf "Processing: $dir\n"
