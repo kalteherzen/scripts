@@ -1,15 +1,17 @@
 #!/bin/bash
 
+USER=whoami
+
 while IFS='' read -r line || [[ -n "$line" ]]
 do
 	printf "Processing: $line\n"
-	rsync -Ravhz --progress $line /root/Backup/ >> /dev/null
+	rsync -Ravhz --progress $line /$USER/Backup/ >> /dev/null
  
 done < $1
 
 cd ~/test/
 
-for dir in ~/Backup/root/*
+for dir in ~/Backup/$USER/*
 do
 	base=Backup_$(basename "$dir")_$(date +%Y%m%d)
 	printf "Processing: $dir\n"
